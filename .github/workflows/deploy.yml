@@ -26,6 +26,8 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/node-docker-demo:latest
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/node-docker-demo:latest
+            ${{ secrets.DOCKER_USERNAME }}/node-docker-demo:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
